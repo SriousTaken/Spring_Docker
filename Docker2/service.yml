@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: spring2
+  labels:
+    run: spring2
+spec:
+  type: NodePort 
+  ports:
+  - nodePort: 30126
+    port: 8080
+    protocol: TCP
+  selector:
+    run: spring2

@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring4
+spec:
+  selector:
+    matchLabels:
+      run: spring4
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: spring4
+    spec:
+      containers:
+      - name: spring4
+        image: spring4:v1
+        ports:
+        - containerPort: 8080
+        
+        

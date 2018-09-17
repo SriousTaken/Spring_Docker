@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring2
+spec:
+  selector:
+    matchLabels:
+      run: spring2
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: spring2
+    spec:
+      containers:
+      - name: spring2
+        image: spring2:v1
+        ports:
+        - containerPort: 8080

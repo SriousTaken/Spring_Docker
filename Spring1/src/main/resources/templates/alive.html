@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+	    <title>Spring web application in Docker</title>
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+	<body>
+		<h1>Alive Checks</h1>
+	    The following Spring Applications are alive:
+	    <ul>
+       		<li th:each="item : ${alive}" th:text="${item}">Item description here...</li>
+    	</ul>
+    	The following Spring Applications are dead:
+	    <ul>
+       		<li th:each="item : ${dead}" th:text="${item}">Item description here...</li>
+    	</ul>
+	</body>
+</html>
