@@ -14,7 +14,8 @@
 .mtj.tmp/
 
 # Package Files #
-*.jar
+*.jar!maven-wrapper.jar
+*.jar.original
 *.war
 *.nar
 *.ear
