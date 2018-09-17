@@ -14,7 +14,7 @@
 .mtj.tmp/
 
 # Package Files #
-*.jar!maven-wrapper.jar
+*.jar
 *.jar.original
 *.war
 *.nar
@@ -22,6 +22,11 @@
 *.zip
 *.tar.gz
 *.rar
+
+!Spring1/.mvn/wrapper/maven-wrapper.jar
+!Spring2/.mvn/wrapper/maven-wrapper.jar
+!Spring3/.mvn/wrapper/maven-wrapper.jar
+!Spring4/.mvn/wrapper/maven-wrapper.jar
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
