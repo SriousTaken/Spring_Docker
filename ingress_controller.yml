@@ -1,0 +1,39 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-dns
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  backend:
+    serviceName: default-http-backend
+    servicePort: 80
+  rules:
+  - host: spring1
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: spring1
+          servicePort: 8080
+  - host: spring2
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: spring2
+          servicePort: 8080
+  - host: spring3
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: spring3
+          servicePort: 8080
+  - host: spring4
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: spring4
+          servicePort: 8080

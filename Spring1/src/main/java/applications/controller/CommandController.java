@@ -23,7 +23,7 @@ public class CommandController {
      * Executes a ls command on the docker the Spring web application is running on
      * @return String representing the result of the ls command
      */
-    @RequestMapping("/command_fix")
+    @RequestMapping("/command/fix")
     public String command() {
     	CommandExecutioner commandExecutioner = new CommandExecutioner("ls", System.getProperty("user.home"));
     	return commandExecutioner.execute();
@@ -32,7 +32,7 @@ public class CommandController {
     /**
      * @return Gives an instruction on how to use the command input features
      */
-    @RequestMapping("/command_input")
+    @RequestMapping("/command/input")
     public String command_input_instruction() {
     	return "Input your command to execute in the URL in the form of .../command_input/{command}!";
     }
@@ -41,7 +41,7 @@ public class CommandController {
      * Executes a command given by the user on the on the docker the Spring web application is running on
      * @return String representing the result of the executed command
      */
-    @RequestMapping("/command_input/{command}")
+    @RequestMapping("/command/input/{command}")
     public String command_input(@PathVariable String command) {
     	CommandExecutioner commandExecutioner = new CommandExecutioner(command, System.getProperty("user.home"));
     	return commandExecutioner.execute();

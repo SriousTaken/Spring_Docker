@@ -29,7 +29,8 @@ public class HealthCheckController {
 	 */
 	@GetMapping("/ping")
     public String ping(Model model) {
-		String pingPongPartner = "http://" + literals.CLUSTER_IP+ ":" + literals.PORTS_COMM_PARTNERS.get("Spring2") + "/pong";
+		
+		String pingPongPartner = "http://" + literals.PING_PONG_PARTNER + ":" + literals.INTERNAL_SERVICE_PORT + "/pong";
     	RestTemplate restTemplate = new RestTemplate();
     	model.addAttribute("message", restTemplate.getForObject(pingPongPartner, String.class));	
     	return "ping";
@@ -45,14 +46,13 @@ public class HealthCheckController {
 					 dead = new ArrayList<String>();
 		RestTemplate restTemplate = new RestTemplate();
 		String address_comm_partner;
-		for(String key_comm_partner : literals.PORTS_COMM_PARTNERS.keySet()) {
-			address_comm_partner = "http://" + literals.CLUSTER_IP + ":" + literals.PORTS_COMM_PARTNERS.get(key_comm_partner) + "/alive";
+		for(String comm_partner : literals.COMM_PARTNERS) {
+			address_comm_partner = "http://" + comm_partner + ":" + literals.INTERNAL_SERVICE_PORT + "/alive";
 			try {
 				alive.add(restTemplate.getForObject(address_comm_partner, String.class));
 			} catch(ResourceAccessException e) {
-				dead.add(key_comm_partner);
-			}
-		}
+				dead.add(comm_partner);
+		}	}
 		model.addAttribute("alive", alive);
 		model.addAttribute("dead", dead);
 		return "alive";

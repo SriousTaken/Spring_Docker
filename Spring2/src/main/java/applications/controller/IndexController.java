@@ -20,12 +20,11 @@ public class IndexController {
 	
 	/**
 	 * Defines the index page of the Spring web application
-	 * @return html code of the index page of the Spring web application
+	 * @return reference to the html template of the index page of the Spring web application 
 	 */
 	@GetMapping("/")
     public String index(Model model) {
 		model.addAttribute("app_id",literals.App_ID);
-		model.addAttribute("address", literals.CLUSTER_IP + ":" + literals.PORT);
 		return "start";
 	}
 }
