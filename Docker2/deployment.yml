@@ -17,3 +17,9 @@ spec:
         image: spring2:v1
         ports:
         - containerPort: 8080
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 8080
+          initialDelaySeconds: 10
+          periodSeconds: 10

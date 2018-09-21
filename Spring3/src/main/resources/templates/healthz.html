@@ -1,0 +1,10 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+	    <title>Spring web application in Docker</title>
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+	<body>
+		<p th:text="'The Spring web application ' + ${app_id} + ' is alive and was started ' + ${time_elapsed} + ' seconds ago.'" />
+	</body>
+</html>

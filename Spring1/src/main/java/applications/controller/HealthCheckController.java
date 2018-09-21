@@ -19,6 +19,18 @@ import literals.Literals;
 public class HealthCheckController {
 	
 	/**
+	 * time since this class was constructed
+	 */
+	long time_started;
+	
+	/**
+	 * constructor
+	 */
+	public HealthCheckController() {
+		time_started = System.nanoTime();
+	}
+	
+	/**
 	 * Literals of this application, for example IDs, URI parts, ports...
 	 */
 	Literals literals = new Literals();
@@ -41,7 +53,7 @@ public class HealthCheckController {
 	 * @return Reference to a html template containing which communication partners are alive and which not 
 	 */
 	@GetMapping("/alive")
-	 public String alive(Model model) {
+	public String alive(Model model) {
 		List<String> alive = new ArrayList<String>(),
 					 dead = new ArrayList<String>();
 		RestTemplate restTemplate = new RestTemplate();
@@ -57,4 +69,28 @@ public class HealthCheckController {
 		model.addAttribute("dead", dead);
 		return "alive";
 	 }
+	
+	/**
+	 * Health check by kubernetes
+	 * @return Reference to a html template containing a message that the server is alive
+	 */
+	@GetMapping("/healthz")
+	public String healthz(Model model) {
+		long time_now = System.nanoTime();
+		long time_elapsed_seconds = (time_now-time_started)/1000000000;
+		model.addAttribute("app_id",literals.App_ID);
+		model.addAttribute("time_elapsed", time_elapsed_seconds);
+		return "healthz";
+	}
+	
+	/*Testing server healthz check fail*/
+	/*@GetMapping("/healthz")
+	public String healthz(Model model) {
+		long time_now = System.nanoTime();
+		long time_elapsed_seconds = (time_now-time_started)/1000000000;
+		model.addAttribute("app_id",literals.App_ID);
+		model.addAttribute("time_elapsed", time_elapsed_seconds);
+		if(time_elapsed_seconds<30) return "healthz";
+		else return ""; //fails the http get requests after 30 seconds running time 
+	}*/
 }
