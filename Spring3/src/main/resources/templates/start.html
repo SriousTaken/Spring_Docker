@@ -7,5 +7,8 @@
 	<body>
 		<h1>Spring Application on Docker</h1>
 	    <p th:text="'This is Spring Application ' + ${app_id} + '.'" />
+	    <ul>
+	    	<li><a th:href="@{'http://' + ${app_id} + '/healthz'}">Health Status</a></li>
+		</ul>
 	</body>
 </html>

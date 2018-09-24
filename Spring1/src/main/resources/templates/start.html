@@ -10,6 +10,7 @@
 		<ul>
 			<li><a th:href="@{'http://' + ${app_id} + '/ping'}">Ping Pong Scenario</a></li>
 			<li><a th:href="@{'http://' + ${app_id} + '/alive'}">Alive Checking Scenario</a></li>
+			<li><a th:href="@{'http://' + ${app_id} + '/healthz'}">Health Status</a></li>
 			<li>Command Scenario <ul>
 				<li><a th:href="@{'http://' + ${app_id} + '/command/fix'}">Fix command: ls</a></li>
 				<li><a th:href="@{'http://' + ${app_id} + '/command/input'}">Command input</a></li>

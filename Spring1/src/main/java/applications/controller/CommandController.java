@@ -4,7 +4,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import literals.Literals;
 import util.CommandExecutioner;
 
 /**
@@ -13,11 +12,6 @@ import util.CommandExecutioner;
  */
 @RestController
 public class CommandController {
-	
-	/**
-	 * Literals of this application, for example IDs, URI parts, ports...
-	 */
-	Literals literals = new Literals();
 	
 	 /**
      * Executes a ls command on the docker the Spring web application is running on

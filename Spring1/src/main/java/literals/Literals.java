@@ -43,4 +43,8 @@ public class Literals {
 	 */
 	public final String PING_PONG_PARTNER = COMM_PARTNERS.get(0);
 	
+	public final String topicExchangeName = "rabbitMQTestExchange";
+	
+	public final String queueName = "rabbitMQTestQueue";
+	
 }

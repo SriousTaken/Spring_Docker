@@ -1,0 +1,1 @@
+helm install --name my-release stable/rabbitmq
