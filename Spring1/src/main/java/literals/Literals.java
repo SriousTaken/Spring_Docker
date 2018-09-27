@@ -45,6 +45,5 @@ public class Literals {
 	
 	public final String topicExchangeName = "rabbitMQTestExchange";
 	
-	public final String queueName = "rabbitMQTestQueue";
-	
+	public final String queueName = "rabbitMQTestQueue";	
 }

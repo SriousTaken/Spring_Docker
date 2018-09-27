@@ -11,13 +11,14 @@ import util.CommandExecutioner;
  * @author Kevin Kassin
  */
 @RestController
+@RequestMapping("/command")
 public class CommandController {
 	
 	 /**
      * Executes a ls command on the docker the Spring web application is running on
      * @return String representing the result of the ls command
      */
-    @RequestMapping("/command/fix")
+    @RequestMapping("/fix")
     public String command() {
     	CommandExecutioner commandExecutioner = new CommandExecutioner("ls", System.getProperty("user.home"));
     	return commandExecutioner.execute();
@@ -26,16 +27,16 @@ public class CommandController {
     /**
      * @return Gives an instruction on how to use the command input features
      */
-    @RequestMapping("/command/input")
+    @RequestMapping("/input")
     public String command_input_instruction() {
-    	return "Input your command to execute in the URL in the form of .../command_input/{command}!";
+    	return "Input your command to execute in the URL in the form of .../command/input/{command}!";
     }
     
     /**
      * Executes a command given by the user on the on the docker the Spring web application is running on
      * @return String representing the result of the executed command
      */
-    @RequestMapping("/command/input/{command}")
+    @RequestMapping("/input/{command}")
     public String command_input(@PathVariable String command) {
     	CommandExecutioner commandExecutioner = new CommandExecutioner(command, System.getProperty("user.home"));
     	return commandExecutioner.execute();
