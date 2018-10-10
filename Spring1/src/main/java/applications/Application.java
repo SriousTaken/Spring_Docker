@@ -12,12 +12,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import literals.Literals;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
  * Defines a Spring web application using Rest calls
  * @author Kevin Kassin
  */
 @SpringBootApplication
+@EnableSwagger2
 public class Application {
 
 	/**
